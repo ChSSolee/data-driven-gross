@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>02-01. 그로스 데이터 분석 (시계열, 세그먼트, 코호트, 퍼널)</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>04. 유입 퍼널 관리 (SHC, 바이럴 루프)</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14596,46 +14596,164 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="%EA%B7%B8%EB%A1%9C%EC%8A%A4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D">&#44536;&#47196;&#49828; &#45936;&#51060;&#53552; &#48516;&#49437;<a class="anchor-link" href="#%EA%B7%B8%EB%A1%9C%EC%8A%A4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D">&#182;</a></h1><br>
+<h1 id="%EC%9C%A0%EC%9E%85-%ED%8D%BC%EB%84%90-%EA%B4%80%EB%A6%AC">&#50976;&#51077; &#54140;&#45328; &#44288;&#47532;<a class="anchor-link" href="#%EC%9C%A0%EC%9E%85-%ED%8D%BC%EB%84%90-%EA%B4%80%EB%A6%AC">&#182;</a></h1><br>
+<img src='img/0601.png' width=600>
+<br>
+<h2 id="%EA%B3%A0%EA%B0%9D-%ED%96%89%EB%8F%99-%ED%8D%BC%EB%84%90">&#44256;&#44061; &#54665;&#46041; &#54140;&#45328;<a class="anchor-link" href="#%EA%B3%A0%EA%B0%9D-%ED%96%89%EB%8F%99-%ED%8D%BC%EB%84%90">&#182;</a></h2><br>
+<h4 id="%EC%98%A4%ED%94%84-%EC%82%AC%EC%9D%B4%ED%8A%B8-%ED%8D%BC%EB%84%90-(Off-Site)">&#50724;&#54532; &#49324;&#51060;&#53944; &#54140;&#45328; (Off-Site)<a class="anchor-link" href="#%EC%98%A4%ED%94%84-%EC%82%AC%EC%9D%B4%ED%8A%B8-%ED%8D%BC%EB%84%90-(Off-Site)">&#182;</a></h4><ul>
+<li>잠재 고객들</li>
+<li>우리 서비스로 유입되기 전에 경험하는 행동과 인식</li>
+<li>서비스 외부에서 검색, 광고 노출 등</li>
+</ul>
+<br>
+<h4 id="%EC%98%A8%EC%82%AC%EC%9D%B4%ED%8A%B8-%ED%8D%BC%EB%84%90-(On-Site)">&#50728;&#49324;&#51060;&#53944; &#54140;&#45328; (On-Site)<a class="anchor-link" href="#%EC%98%A8%EC%82%AC%EC%9D%B4%ED%8A%B8-%ED%8D%BC%EB%84%90-(On-Site)">&#182;</a></h4><ul>
+<li>유입 고객</li>
+<li>우리 서비스로 유입된 이후 경험하는 퍼널</li>
+<li>앱 설치, 가입, 탐색, 구매 AARRR</li>
+</ul>
+<br>
+<h3 id="%EC%9C%A0%EC%9E%85-%ED%8D%BC%EB%84%90">&#50976;&#51077; &#54140;&#45328;<a class="anchor-link" href="#%EC%9C%A0%EC%9E%85-%ED%8D%BC%EB%84%90">&#182;</a></h3><img src='img/0604.png' width=600>
+<br>
+<h4 id="%EC%9D%B8%EC%A7%80-(Awareness)">&#51064;&#51648; (Awareness)<a class="anchor-link" href="#%EC%9D%B8%EC%A7%80-(Awareness)">&#182;</a></h4><table>
+<thead>
+<tr>
+  <th><strong>지표</strong></th>
+  <th><strong>설명</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>인지도</strong></td>
+  <td>전체 고객 중 우리 서비스나 제품을 알고 있는 고객의 비율</td>
+</tr>
+<tr>
+  <td><strong>TOM</strong></td>
+  <td>전체 고객 중 특정 카테고리에서 우리 서비스나 제품을 '가장 먼저 떠올리는' 고객의 비율</td>
+</tr>
+<tr>
+  <td><strong>노출, 조회, 도달, 빈도</strong></td>
+  <td>노출 or 조회 = 도달 X 빈도</td>
+</tr>
+<tr>
+  <td><strong>검색 점유율</strong></td>
+  <td>경쟁사를 포함한 특정 카테고리의 검색량 중 자사의 키워드 검색량의 점유율</td>
+</tr>
+<tr>
+  <td><strong>검색 결과 점유율</strong></td>
+  <td>관련 키워드 검색 시 검색 결과에서 자사에 대한 콘텐츠가 얼마나 노출되는지</td>
+</tr>
+<tr>
+  <td><strong>언급량</strong></td>
+  <td>소셜 미디어, 온라인 커뮤니티 등에서 자사에 대해 언급하는 포스트/콘텐츠의 양</td>
+</tr>
+<tr>
+  <td><strong>CPM</strong></td>
+  <td>1천회 노출 당 마케팅 비용</td>
+</tr>
+<tr>
+  <td><strong>CPR</strong></td>
+  <td>1명 고객 도달 당 마케팅 비용</td>
+</tr>
+<tr>
+  <td><strong>CPV</strong></td>
+  <td>1회 조회 당 마케팅 비용</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h4 id="%EA%B4%80%EA%B3%84-/-%EA%B4%80%EC%8B%AC-(Interest)">&#44288;&#44228; / &#44288;&#49900; (Interest)<a class="anchor-link" href="#%EA%B4%80%EA%B3%84-/-%EA%B4%80%EC%8B%AC-(Interest)">&#182;</a></h4><table>
+<thead>
+<tr>
+  <th><strong>지표</strong></th>
+  <th><strong>설명</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>클릭</strong></td>
+  <td></td>
+</tr>
+<tr>
+  <td><strong>CPC</strong></td>
+  <td>1회의 조회 당 마케팅 비용 / 1회의 클릭 당 마케팅 비용</td>
+</tr>
+<tr>
+  <td><strong>CTR</strong></td>
+  <td>노출된 사람들 중 클릭한 사람의 비율</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h4 id="%EA%B3%A0%EB%A0%A4-(Consideration)">&#44256;&#47140; (Consideration)<a class="anchor-link" href="#%EA%B3%A0%EB%A0%A4-(Consideration)">&#182;</a></h4><table>
+<thead>
+<tr>
+  <th><strong>지표</strong></th>
+  <th><strong>설명</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>MAU, WAU, DAU</strong></td>
+  <td>월간 활성 유저, 주간 활성 유저, 일간 활성 유저</td>
+</tr>
+<tr>
+  <td><strong>Engagement, Stickiness</strong></td>
+  <td>MAU중 DAU의 비율 (=DAU / MAU)</td>
+</tr>
+<tr>
+  <td><strong>앱설치, 회원가입</strong></td>
+  <td>단순 방문 이상의 고객의 참여가 필요한 앱설치나 회원가입한 고객의 수</td>
+</tr>
+<tr>
+  <td><strong>Traffic (UV, PV)</strong></td>
+  <td>UV : 유니크 방문자 수 <br> PV : 페이지 조회 수</td>
+</tr>
+<tr>
+  <td><strong>CPI, CPA</strong></td>
+  <td>완료된 액션 수 / 마케팅 예산</td>
+</tr>
+</tbody>
+</table>
+<h4 id="%EC%8B%9C%EB%8F%84-(Trial)">&#49884;&#46020; (Trial)<a class="anchor-link" href="#%EC%8B%9C%EB%8F%84-(Trial)">&#182;</a></h4><table>
+<thead>
+<tr>
+  <th><strong>지표</strong></th>
+  <th><strong>설명</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>구매 전환율, 결제 전환율</strong></td>
+  <td>전체 방문자 중 구매/결제한 고객 비율</td>
+</tr>
+<tr>
+  <td><strong>CAC</strong></td>
+  <td>구매한 고객 / 마케팅 예산</td>
+</tr>
+<tr>
+  <td><strong>ROAS</strong></td>
+  <td>발생 매출 / 마케팅 예산</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h3 id="%EC%A7%80%EC%86%8D-%EA%B0%80%EB%8A%A5%ED%95%9C-%EC%9C%A0%EC%9E%85-%EC%A0%84%EB%9E%B5">&#51648;&#49549; &#44032;&#45733;&#54620; &#50976;&#51077; &#51204;&#47029;<a class="anchor-link" href="#%EC%A7%80%EC%86%8D-%EA%B0%80%EB%8A%A5%ED%95%9C-%EC%9C%A0%EC%9E%85-%EC%A0%84%EB%9E%B5">&#182;</a></h3><br>
+<h4 id="%EC%A7%80%ED%91%9C-%EB%B3%84-%ED%9A%A8%EC%9C%A8%EC%84%B1-%EA%B8%B0%EC%A4%80">&#51648;&#54364; &#48324; &#54952;&#50984;&#49457; &#44592;&#51456;<a class="anchor-link" href="#%EC%A7%80%ED%91%9C-%EB%B3%84-%ED%9A%A8%EC%9C%A8%EC%84%B1-%EA%B8%B0%EC%A4%80">&#182;</a></h4><img src='img/0605.png' width=600>
+<br>
+<h4 id="MAU%EC%9D%98-%EC%A0%95%EC%9D%98">MAU&#51032; &#51221;&#51032;<a class="anchor-link" href="#MAU%EC%9D%98-%EC%A0%95%EC%9D%98">&#182;</a></h4><ul>
+<li>고객의 행동에 따라 MAU가 가지는 의미가 달라질 수 있음</li>
+<li><strong>MAU가 DAU와 같은 방문자 수가 계속 증가하더라도 결제자나 구매자가 그에 맞춰 증가하지 않는다면 문제</strong></li>
+</ul>
+<img src='img/0606.png' width=600>
+<br>
+<h4 id="CAC,-ROAS%EB%A1%9C-%EC%A7%80%EC%86%8D%EA%B0%80%EB%8A%A5%EC%84%B1-%EC%A0%90%EA%B2%80">CAC, ROAS&#47196; &#51648;&#49549;&#44032;&#45733;&#49457; &#51216;&#44160;<a class="anchor-link" href="#CAC,-ROAS%EB%A1%9C-%EC%A7%80%EC%86%8D%EA%B0%80%EB%8A%A5%EC%84%B1-%EC%A0%90%EA%B2%80">&#182;</a></h4><ul>
+<li><p><strong>CAC가 고객이 만들어내는 생애가치인 LTV보다 낮다면 문제</strong></p>
+<p>$\rightarrow$ <strong>광고를 중단하거나 광고의 효율성, 즉 CPM이나 CPC를 낮추기 위한 조정이 필요</strong></p>
+</li>
+</ul>
+<br>
 <hr>
 <br>
-<h2 id="%EA%B7%B8%EB%A1%9C%EC%8A%A4-%EB%A7%88%EC%BC%80%ED%84%B0%EC%97%90%EA%B2%8C-%ED%95%84%EC%9A%94%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0">&#44536;&#47196;&#49828; &#47560;&#52992;&#53552;&#50640;&#44172; &#54596;&#50836;&#54620; &#45936;&#51060;&#53552;<a class="anchor-link" href="#%EA%B7%B8%EB%A1%9C%EC%8A%A4-%EB%A7%88%EC%BC%80%ED%84%B0%EC%97%90%EA%B2%8C-%ED%95%84%EC%9A%94%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0">&#182;</a></h2><ul>
-<li>그로스 마케터에게 데이터는 필수적</li>
-<li>고객의 행동을 정량화하고, 이를 측정해 나가기 위해서 데이터가 반드시 필요하며, 마케터는 이를 기반으로 가설을 수립하여 필요한 실험을 지진행</li>
-</ul>
-<img src='img/0301.png' width=600>
-<br>
-<ul>
-<li><strong>고객이 어떠한 행동을 하게 되면 두 가지의 데이터가 생성</strong><ul>
-<li><strong>액션</strong> : 실제로 고객이 어떤 행동을 했는가?</li>
-<li><strong>속성</strong> : 고객의 액션을 서ㅔ부적으로 이해할 수 있는 특징</li>
-</ul>
-</li>
-</ul>
-<img src='img/0302.png' width=600>
-<img src='img/0306.png' width=300>
-<br>
-<ul>
-<li>속성의 유형<ul>
-<li><strong>고객 속성</strong> : 성별 연령, 가입 일 등 <strong>고정적</strong></li>
-<li><strong>행동 속성</strong> : 상품 명, 상품 개수 등 행동에 따라 <strong>가변적</strong></li>
-</ul>
-</li>
-</ul>
-<img src='img/0307.png' width=600>
-<br>
-<h3 id="%EB%A7%88%EC%BC%80%ED%84%B0%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D">&#47560;&#52992;&#53552;&#51032; &#45936;&#51060;&#53552; &#48516;&#49437;<a class="anchor-link" href="#%EB%A7%88%EC%BC%80%ED%84%B0%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D">&#182;</a></h3><br>
-<h4 id="%EB%B6%84%EC%84%9D%ED%95%98%EB%A0%A4%EB%8A%94-%EC%95%A1%EC%85%98%EC%9D%98-%EC%84%A0%ED%83%9D">&#48516;&#49437;&#54616;&#47140;&#45716; &#50529;&#49496;&#51032; &#49440;&#53469;<a class="anchor-link" href="#%EB%B6%84%EC%84%9D%ED%95%98%EB%A0%A4%EB%8A%94-%EC%95%A1%EC%85%98%EC%9D%98-%EC%84%A0%ED%83%9D">&#182;</a></h4><ul>
-<li><p><strong>행동에 대한 액션과 함께 액션에 연결된 행동 속성, 고객에게 연결된 고객 속성이 만들어짐</strong></p>
-<p>$\rightarrow$ <strong>고객 속성에서는 진입 경로, 고객 프로파일이 중요</strong></p>
-</li>
-<li><p>해당 행동이 고객 속성과 행동 속성을 파악했다면, 그 행동 전/후로 발생한 다른 행동도 파악</p>
-<p><strong>전/후로 행한 고객의 액션을 잘 살펴보면, 상관성과 행동의 의도를 유추할 수 있는 경우가 많기 때문</strong></p>
-<p>$\rightarrow$ <strong>마케터는 특정 고객의 행동을 분석하기 위해 해당 행동의 고객 속성과 행동 속성을 파악하고,</strong></p>
-<p><strong>전/후 고객의 연결된 행동을 보면서 특정 고객이 보이는 상관성과 행동 의도를 파악해, 왜 고객이 이런 행동을 했는지 추론</strong></p>
-</li>
-</ul>
-<img src='img/0308.png' width=600>
 
 </div>
 </div>
@@ -14647,79 +14765,103 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<br>
-<h3 id="%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%B6%84%EC%84%9D">&#49884;&#44228;&#50676; &#48516;&#49437;<a class="anchor-link" href="#%EC%8B%9C%EA%B3%84%EC%97%B4-%EB%B6%84%EC%84%9D">&#182;</a></h3><ul>
-<li><p>분석하고 싶은 특정 속성의 고객이나 특정 고객의 행동이 있다면, 시간의 흐름에 따른 그 값의 변화를 살펴보는 것</p>
-</li>
-<li><p>시계열 분석의 주요 목적</p>
-<ol>
-<li><p><strong>변곡점 탐색</strong> : 변곡점을 탐색하면, 그 변곡점에 유효하게 작용한 특정 변수가 고객의 행동에 영향을 미쳤을 가능성이 높음</p>
-<p>$\rightarrow$ 무엇이 그 변곡점에 영향을 주었는가 탐색</p>
-</li>
-<li><p><strong>상관관계 탐색</strong> : 시계열에서 만들어지는 그래프가 비례 혹은 반비례 관계가 보인다면, 두 요소가 상관관계를 가질 수도 있음</p>
-</li>
-</ol>
-</li>
+<h2 id="%EC%A7%80%EC%86%8D-%EA%B0%80%EB%8A%A5%ED%95%9C-%EC%9C%A0%EC%9E%85-%EC%A0%84%EB%9E%B5">&#51648;&#49549; &#44032;&#45733;&#54620; &#50976;&#51077; &#51204;&#47029;<a class="anchor-link" href="#%EC%A7%80%EC%86%8D-%EA%B0%80%EB%8A%A5%ED%95%9C-%EC%9C%A0%EC%9E%85-%EC%A0%84%EB%9E%B5">&#182;</a></h2><br>
+<h3 id="%EC%9C%A0%EC%9E%85-%EA%B2%BD%EB%A1%9C-%EC%B5%9C%EC%A0%81%ED%99%94">&#50976;&#51077; &#44221;&#47196; &#52572;&#51201;&#54868;<a class="anchor-link" href="#%EC%9C%A0%EC%9E%85-%EA%B2%BD%EB%A1%9C-%EC%B5%9C%EC%A0%81%ED%99%94">&#182;</a></h3><img src='img/0607.png' width=600>
+<h4 id="Paid-%EA%B2%BD%EB%A1%9C">Paid &#44221;&#47196;<a class="anchor-link" href="#Paid-%EA%B2%BD%EB%A1%9C">&#182;</a></h4><ul>
+<li>유료로 고객을 획득하는 채널</li>
+<li>모든 형태의 광고 (DA, SA, TVC 등)</li>
+<li>협찬, PPL</li>
+<li>제휴, Affiliate 프로그램</li>
 </ul>
-<img src='img/0309.png' width=800>
 <br>
-<h4 id="%EB%B6%84%EC%84%9D-%EC%82%AC%EB%A1%80">&#48516;&#49437; &#49324;&#47168;<a class="anchor-link" href="#%EB%B6%84%EC%84%9D-%EC%82%AC%EB%A1%80">&#182;</a></h4><ul>
-<li><p>1월부터 꾸준히 구매자 수가 증가하지만, 4월부터 구매자 수가 크게 증가</p>
-<p>변곡점 전/후로 영향을 미쳤을 것으로 추정되는 다른 액션이나 속성값</p>
+<h4 id="Organic-%EA%B2%BD%EB%A1%9C-(=Unknown)">Organic &#44221;&#47196; (=Unknown)<a class="anchor-link" href="#Organic-%EA%B2%BD%EB%A1%9C-(=Unknown)">&#182;</a></h4><ul>
+<li>자연적으로 고객을 획득하는 채널 (식별 불가 경로)</li>
+<li>검색, 소셜 미디어, 유튜브, 방송 노출</li>
+<li>블로그, 커뮤니티, 카페, 뉴스, 잡지</li>
+<li>플랫폼 교차 사용 (백링크)</li>
+</ul>
+<br>
+<h4 id="Viral-%EA%B2%BD%EB%A1%9C">Viral &#44221;&#47196;<a class="anchor-link" href="#Viral-%EA%B2%BD%EB%A1%9C">&#182;</a></h4><ul>
+<li>유입 단위 당 비용이 발생하지 않거나, 발생 하더라도 유입 전파성이 높은 경로</li>
+<li>조회수가 터진 유튜브 영상</li>
+<li>유명 채널에 소개된 팝업 스토어</li>
+<li>...</li>
+</ul>
+<br>
+<h3 id="%EC%9C%A0%EC%9E%85-%EA%B2%BD%EB%A1%9C-%EC%B5%9C%EC%A0%81%ED%99%94">&#50976;&#51077; &#44221;&#47196; &#52572;&#51201;&#54868;<a class="anchor-link" href="#%EC%9C%A0%EC%9E%85-%EA%B2%BD%EB%A1%9C-%EC%B5%9C%EC%A0%81%ED%99%94">&#182;</a></h3><ul>
+<li>획득 고객들의 <strong>기여 유입 경로</strong> 파악</li>
+<li>잠재 고객들의 유입 전 <strong>오프사이트 퍼널 행동</strong> 확인</li>
+</ul>
+<br>
+<h4 id="%ED%9A%8D%EB%93%9D-%EA%B3%A0%EA%B0%9D%EB%93%A4%EC%9D%98-%EA%B8%B0%EC%97%AC-%EC%9C%A0%EC%9E%85-%EA%B2%BD%EB%A1%9C">&#54925;&#46301; &#44256;&#44061;&#46308;&#51032; &#44592;&#50668; &#50976;&#51077; &#44221;&#47196;<a class="anchor-link" href="#%ED%9A%8D%EB%93%9D-%EA%B3%A0%EA%B0%9D%EB%93%A4%EC%9D%98-%EA%B8%B0%EC%97%AC-%EC%9C%A0%EC%9E%85-%EA%B2%BD%EB%A1%9C">&#182;</a></h4><img src='img/0608.png' width=600>
 <ul>
-<li>검색광고 유입을 통한 방문자가 4, 5월에 크게 증가</li>
+<li><strong>기여 기간 (룩백 윈도우)</strong> : 고객 획득 전 몇일 까지를 유효 기여 기간으로 볼 것인가?<ul>
+<li>1, 3, 7일 등</li>
 </ul>
-<p>$\rightarrow$ 검색광고 유입 고객들이 유입 전후로 하는 액션이 다른 유입 경로의 고객들과 무엇이 다른지 살펴 보는 것</p>
+</li>
+<li><strong>기여 비중</strong> : 기여 기간 중 발생한 기여 이벤트들의 기여 비중을 어떻게 측정할 것인가?<ul>
+<li>첫 클릭, 마지막 클릭, 분배 등</li>
+</ul>
+</li>
+<li><strong>기여 방식</strong> : 기여 기간 중 발생한 이벤트들의 기여 조건을 어떻게 정의할 것인가?<ul>
+<li>클릭 이벤트, 조회 이벤트 등</li>
+</ul>
 </li>
 </ul>
-<table border="1" cellspacing="0" cellpadding="8" style="border-collapse: collapse; text-align:center;">
-    <thead>
-        <tr>
-            <th>월</th>
-            <th>구매자 수</th>
-            <th>자연 유입 방문자</th>
-            <th>배너 광고 유입 방문자</th>
-            <th>검색 광고 유입 방문자</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1월</td>
-            <td>100</td>
-            <td>200</td>
-            <td>50</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>2월</td>
-            <td>110</td>
-            <td>210</td>
-            <td>60</td>
-            <td>15</td>
-        </tr>
-        <tr>
-            <td>3월</td>
-            <td>120</td>
-            <td>200</td>
-            <td>70</td>
-            <td>18</td>
-        </tr>
-        <tr>
-            <td>4월</td>
-            <td>200</td>
-            <td>220</td>
-            <td>80</td>
-            <td>80</td>
-        </tr>
-        <tr>
-            <td>5월</td>
-            <td>300</td>
-            <td>230</td>
-            <td>90</td>
-            <td>160</td>
-        </tr>
-    </tbody>
+<br>
+<h4 id="%EC%9E%A0%EC%9E%AC-%EA%B3%A0%EA%B0%9D%EB%93%A4%EC%9D%98-%EC%98%A4%ED%94%84%EC%82%AC%EC%9D%B4%ED%8A%B8-%ED%8D%BC%EB%84%90-%ED%96%89%EB%8F%99">&#51104;&#51116; &#44256;&#44061;&#46308;&#51032; &#50724;&#54532;&#49324;&#51060;&#53944; &#54140;&#45328; &#54665;&#46041;<a class="anchor-link" href="#%EC%9E%A0%EC%9E%AC-%EA%B3%A0%EA%B0%9D%EB%93%A4%EC%9D%98-%EC%98%A4%ED%94%84%EC%82%AC%EC%9D%B4%ED%8A%B8-%ED%8D%BC%EB%84%90-%ED%96%89%EB%8F%99">&#182;</a></h4><table>
+<thead>
+<tr>
+  <th><strong>체크 리스트</strong></th>
+  <th><strong>관련 유입 채널</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>잠재 고객들이 문제를 해결하기 위해 검색을 하는가?</td>
+  <td>검색 최적화, 검색 광고</td>
+</tr>
+<tr>
+  <td>충동 구매나 비계획 구매가 일어날 수 있는 상품/서비스인가?</td>
+  <td>소셜 미디어 광고</td>
+</tr>
+<tr>
+  <td>구매 빈도가 높은 상품/서비스인가?</td>
+  <td>소셜 미디어 광고</td>
+</tr>
+<tr>
+  <td>지인에게 추천하거나 추천 받을 명분이 있는 상품/서비스인가?</td>
+  <td>레퍼럴, 추천 프로그램</td>
+</tr>
+<tr>
+  <td>유저가 늘어날수록 고객의 편의성이나 가치도 함께 늘어나는 상품/서비스인가 ?</td>
+  <td>레퍼럴 추천 프로그램</td>
+</tr>
+<tr>
+  <td>구매 확신을 가지는데 공신력이나 검증이 필요한 상품/서비스인가?</td>
+  <td>홍보, PR, 제휴</td>
+</tr>
+<tr>
+  <td>많은 대안이 존재하여 큐레이션이나 추천이 필요한 상품/서비스인가?</td>
+  <td>인플루언서, 콘텐츠</td>
+</tr>
+<tr>
+  <td>심도 있는 설명이나 사용법에 대한 숙지가 필요한 상품/서비스인가?</td>
+  <td>인플루언서, 콘텐츠</td>
+</tr>
+<tr>
+  <td>강한 경쟁사나 선도 경쟁사가 존재하는가 ?</td>
+  <td>유료 광고</td>
+</tr>
+<tr>
+  <td>높은 LTV를 기대할 수 있는 상품이나 서비스인가?</td>
+  <td>유료 광고</td>
+</tr>
+</tbody>
 </table>
+<br>
+<hr>
+<br>
 
 </div>
 </div>
@@ -14731,125 +14873,80 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<br>
-<h3 id="%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-%EB%B6%84%EC%84%9D">&#49464;&#44536;&#47676;&#53944; &#48516;&#49437;<a class="anchor-link" href="#%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-%EB%B6%84%EC%84%9D">&#182;</a></h3><ul>
-<li><strong>내가 원하는 행동을 보이는 고객과, 그렇지 않은 고객을 비교하여, 각 고객의 특성 분석</strong></li>
-</ul>
-<img src='img/0310.png' width=600>
-<br>
-<h4 id="%EA%B3%B5%ED%86%B5%EC%A0%90%EA%B3%BC-%EC%B0%A8%EC%9D%B4%EC%A0%90-%ED%83%90%EC%83%89">&#44277;&#53685;&#51216;&#44284; &#52264;&#51060;&#51216; &#53456;&#49353;<a class="anchor-link" href="#%EA%B3%B5%ED%86%B5%EC%A0%90%EA%B3%BC-%EC%B0%A8%EC%9D%B4%EC%A0%90-%ED%83%90%EC%83%89">&#182;</a></h4><ul>
-<li><p>내가 원하는 행동을 수행한 고객과 그렇지 않은 고객을 구분하고,</p>
-<p>고객의 속성부터 행동의 속성까지 무엇이 같고 무엇이 다른지를 파악</p>
-<ul>
-<li><p>예) 구매 고객 vs 미구매 고객</p>
-<ul>
-<li><p>고객의 연령, 성별, 유입 경로, 가입일 등 다양한 고객 속성과</p>
-<p>고객 상품, 구매 상품의 가격대 등의 거래 속성을 비교</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<br>
-<h4 id="%EC%A0%95%EB%8F%84%EC%9D%98-%EC%B0%A8%EC%9D%B4%EB%A5%BC-%ED%83%90%EC%83%89">&#51221;&#46020;&#51032; &#52264;&#51060;&#47484; &#53456;&#49353;<a class="anchor-link" href="#%EC%A0%95%EB%8F%84%EC%9D%98-%EC%B0%A8%EC%9D%B4%EB%A5%BC-%ED%83%90%EC%83%89">&#182;</a></h4><ul>
-<li><p>내가 원하는 행동을 많이 한 고객부터 적게 한 고객까지 그 정도를 나누고, 정도가 높고 낮은 고객들 사이에 차이점이 있는지 살펴보는 것</p>
-<ul>
-<li>예) 한 달 동안 구매라는 행동을 많이 한 고객과 적게한 고객을 분류<ul>
-<li>분류한 각 고객들의 고객이나 구매 속성을 탐색</li>
-<li><strong>내가 원하는 행동을 더 많이 하는 고객을 분석해, 무엇이 그 행동을 유발하는지 다른 세그먼트와 비교</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<br>
-<h4 id="%EB%B6%84%EC%84%9D-%EC%82%AC%EB%A1%80">&#48516;&#49437; &#49324;&#47168;<a class="anchor-link" href="#%EB%B6%84%EC%84%9D-%EC%82%AC%EB%A1%80">&#182;</a></h4><ul>
-<li><p><strong>배너 광고 유입자 비율이 미구매자에서는 높지만 구매자에서는 낮음</strong></p>
-<p>$\rightarrow$ 검색 광고 유입자들의 전/후 행동, 고객 속성을 분석하여, 왜 검색 광고 유입자들의 구매 비율이 높은지 탐색</p>
-</li>
-</ul>
-<table border="1" cellspacing="0" cellpadding="8" style="border-collapse: collapse; text-align:center; margin-bottom:40px;">
-    <thead>
-        <tr>
-            <th>(비율)</th>
-            <th>구매자</th>
-            <th>미구매자</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>자연 유입</td>
-            <td>50%</td>
-            <td>40%</td>
-        </tr>
-        <tr>
-            <td>배너 광고 유입</td>
-            <td>10%</td>
-            <td>40%</td>
-        </tr>
-        <tr>
-            <td>검색 광고 유입</td>
-            <td>30%</td>
-            <td>5%</td>
-        </tr>
-        <tr>
-            <td>콘텐츠 유입</td>
-            <td>5%</td>
-            <td>10%</td>
-        </tr>
-        <tr>
-            <td>지인추천 유입</td>
-            <td>5%</td>
-            <td>5%</td>
-        </tr>
-    </tbody>
+<h2 id="%EC%9C%A0%EC%9E%85-%EB%A9%94%EC%8B%9C%EC%A7%80-%EC%B5%9C%EC%A0%81%ED%99%94">&#50976;&#51077; &#47700;&#49884;&#51648; &#52572;&#51201;&#54868;<a class="anchor-link" href="#%EC%9C%A0%EC%9E%85-%EB%A9%94%EC%8B%9C%EC%A7%80-%EC%B5%9C%EC%A0%81%ED%99%94">&#182;</a></h2><table>
+<thead>
+<tr>
+  <th><strong>트리거</strong></th>
+  <th><strong>베리어</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>각 퍼널에서 다음 단계로 넘어가게 만드는 요인</td>
+  <td>각 퍼널에서 다음 단계로 넘어가게 못하게 만드는 요인</td>
+</tr>
+</tbody>
 </table>
-<ul>
-<li><p><strong>구매자를 구매 빈도로 구분하여, 구매 빈도가 높은 상위 고객부터 하위 고객까지를 다시 그룹을 나눔</strong></p>
-<ul>
-<li>검색 광고를 통해 유입되는 고객들은 구매 빈도가 낮은 고객 그룹에서 높음</li>
-<li>구매 빈도가 높은 고객 그룹에서는 자연 유입자 비율이 높음</li>
-</ul>
-<p>$\rightarrow$ <strong>검색 광고를 통해 들어오는 고객들은 구매 의도가 확실해 구매를 즉시 하지만, 장기적으로 구매 빈도가 증가하는 고객들은 아님</strong></p>
-<p>$\rightarrow$ <strong>즉, 즉시 구매를 하고 이탈한다는 가설</strong></p>
-</li>
-</ul>
-<table border="1" cellspacing="0" cellpadding="8" style="border-collapse: collapse; text-align:center;">
-    <thead>
-        <tr>
-            <th>(비율)</th>
-            <th>자연 유입자 비율</th>
-            <th>검색 광고 유입자 비율</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>구매 빈도 상위 20%</td>
-            <td>70%</td>
-            <td>10%</td>
-        </tr>
-        <tr>
-            <td>구매 빈도 차상위 20%</td>
-            <td>60%</td>
-            <td>20%</td>
-        </tr>
-        <tr>
-            <td>구매 빈도 차차상위 20%</td>
-            <td>50%</td>
-            <td>30%</td>
-        </tr>
-        <tr>
-            <td>구매 빈도 차하위 20%</td>
-            <td>40%</td>
-            <td>40%</td>
-        </tr>
-        <tr>
-            <td>구매 빈도 하위 20%</td>
-            <td>30%</td>
-            <td>50%</td>
-        </tr>
-    </tbody>
+<br>
+<img src='img/0609.png' width=700>
+<img src='img/0610.png' width=700>
+<br>
+<table>
+<thead>
+<tr>
+  <th><strong>소셜 미디어 광고</strong></th>
+  <th><strong>앱스토어 / 랜딩 페이지</strong></th>
+  <th><strong>온사이트 NUX / 온보딩 과정</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>트리거 자극</td>
+  <td>트리거 자극 &amp; 베리어 해소</td>
+  <td>베리어 최소화</td>
+</tr>
+<tr>
+  <td>호기심을 불러 일으키고 관심도를 높여 광고의 클릭을 유도</td>
+  <td>현실적인 베리어에 대한 해결첵 제시</td>
+  <td>쉽게 핵심 가치와 효용을 이해하고 온보딩 과정에서의 불편함 최소화</td>
+</tr>
+<tr>
+  <td>예) 간편한 조회, 놓치지 마세요</td>
+  <td>예) 개인 정보는 철저하게 관리 됩니다</td>
+  <td>예) 클릭 한번으로 가입하고 안전하게 조회 하세요</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h3 id="SHC-%ED%94%84%EB%A0%88%EC%9E%84-%EC%9B%8C%ED%81%AC">SHC &#54532;&#47112;&#51076; &#50892;&#53356;<a class="anchor-link" href="#SHC-%ED%94%84%EB%A0%88%EC%9E%84-%EC%9B%8C%ED%81%AC">&#182;</a></h3><table>
+<thead>
+<tr>
+  <th><strong>프레임 워크</strong></th>
+  <th><strong>순서</strong></th>
+  <th><strong>중점</strong></th>
+  <th><strong>유입 퍼널</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>STOP</td>
+  <td>1</td>
+  <td>[훅] 화면을 멈추도록 시선을 사로 잡음</td>
+  <td>인지, 관심 단계</td>
+</tr>
+<tr>
+  <td>HOLD</td>
+  <td>2</td>
+  <td>[설득] 2~3초 안에 고객에게 핵심 가치를 이해시키고 설득</td>
+  <td>고려, 시도 단계</td>
+</tr>
+<tr>
+  <td>CLOSE</td>
+  <td>3</td>
+  <td>[Call-to-action] 지금 당장 해야하는 다음 행동을 촉구</td>
+  <td></td>
+</tr>
+</tbody>
 </table>
 
 </div>
@@ -14863,170 +14960,49 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <br>
-<h3 id="%EC%BD%94%ED%98%B8%ED%8A%B8-%EB%B6%84%EC%84%9D">&#53076;&#54840;&#53944; &#48516;&#49437;<a class="anchor-link" href="#%EC%BD%94%ED%98%B8%ED%8A%B8-%EB%B6%84%EC%84%9D">&#182;</a></h3><ul>
-<li><p>특정 행동을 한 고객들을 지정해 놓고, 그 고객이 과거에 무슨 일을 했는지</p>
-<p>혹은 반대로 시간이 경과한 후에 그 시점 이후 무슨일을 했는지 탐색 (시간 추적)</p>
-</li>
-</ul>
+<hr>
 <br>
-<h3 id="%ED%8D%BC%EB%84%90-%EB%B6%84%EC%84%9D">&#54140;&#45328; &#48516;&#49437;<a class="anchor-link" href="#%ED%8D%BC%EB%84%90-%EB%B6%84%EC%84%9D">&#182;</a></h3><ul>
-<li>고객의 행동을 퍼널 형태로 분석</li>
-<li><strong>코호트가 고객을 중심으로 고정 vs 퍼널은 행동과 액션 기준으로 고정</strong><ul>
-<li><strong>코호트가 특정 행동을 한 고객을 지정해 놓고, 그 고객의 과거와 미래를 탐색</strong></li>
-<li><strong>퍼널 분석은 특정 행동을 지정하고, 그 행동을 한 고객들이 어떻게 변화하는지를 탐색</strong></li>
-</ul>
-</li>
-</ul>
-<br>
-<h3 id="%EC%BD%94%ED%98%B8%ED%8A%B8-+-%ED%8D%BC%EB%84%90-(%ED%95%98%EC%9D%B4%EB%B8%8C%EB%A6%AC%EB%93%9C)">&#53076;&#54840;&#53944; + &#54140;&#45328; (&#54616;&#51060;&#48652;&#47532;&#46300;)<a class="anchor-link" href="#%EC%BD%94%ED%98%B8%ED%8A%B8-+-%ED%8D%BC%EB%84%90-(%ED%95%98%EC%9D%B4%EB%B8%8C%EB%A6%AC%EB%93%9C)">&#182;</a></h3><ul>
-<li><p><strong>서로 다른 행동을 하는 고객들의 세그먼트를 나누고, 세그먼트별로 퍼널 분석이나 코호트 분석</strong></p>
-<p>고객 세그먼트별로 각각의 퍼널을 구조화해 차이를 비교</p>
-<p>시간이 경과 함에 따라 어떻게 행동이 바뀌는지를 탐색</p>
-</li>
-</ul>
-<img src='img/0311.png' width=800>
-<br>
-<h4 id="%EB%B6%84%EC%84%9D-%EC%82%AC%EB%A1%80">&#48516;&#49437; &#49324;&#47168;<a class="anchor-link" href="#%EB%B6%84%EC%84%9D-%EC%82%AC%EB%A1%80">&#182;</a></h4><ul>
-<li><p><strong>가입율</strong> : 웹 사이트에 방문한 고객들 중 특정 기간 동안 회원가입까지 완료한 고객들의 비율 (<strong>시간 기준에 따라 가변</strong>)</p>
-</li>
-<li><p>N일 이내에 상세페이지에 얼마나 들어갔는지, 상세페이지에 들어간 고객들이 N일 이내 얼마나 구매 하는지 등을 코호트 개념으로 탐색</p>
-<p>재구매율은 조금 더 긴 시간의 관점 (30일 등)</p>
-</li>
-</ul>
-<br>
+<h2 id="%EB%B0%94%EC%9D%B4%EB%9F%B4-%EB%A3%A8%ED%94%84">&#48148;&#51060;&#47092; &#47336;&#54532;<a class="anchor-link" href="#%EB%B0%94%EC%9D%B4%EB%9F%B4-%EB%A3%A8%ED%94%84">&#182;</a></h2><br>
+<h3 id="%EB%B0%94%EC%9D%B4%EB%9F%B4-%EA%B3%84%EC%88%98">&#48148;&#51060;&#47092; &#44228;&#49688;<a class="anchor-link" href="#%EB%B0%94%EC%9D%B4%EB%9F%B4-%EA%B3%84%EC%88%98">&#182;</a></h3><blockquote>
+<p><strong>바이럴 계수 = 기존 유저의 도달 범위 $\times$ 전환율 $\times$ 빈도</strong></p>
+</blockquote>
 <ul>
-<li><strong>자연 유입 고객</strong> :<ul>
-<li>구매율이 낮은 반면, 재구매율이 높음 $\rightarrow$ 많이 확보될 수록 미래의 구매까지 키울 수 있는 고객</li>
-<li><strong>상세페이지 진입율이 낮음 $\rightarrow$ 맞춤형 상품을 추천하여, 상품 탐색의 기회를 준다면 성장 가능</strong></li>
+<li><strong>기존 유저의 도달 범위</strong> : 기존 고객이 한 번의 액션으로 몇 명의 사람에게 우리 서비스를 알려 줄 수 있는지</li>
+<li><strong>전환율</strong> : 기존 고객에 의해 도달된 잠재 고객들 중 실제 우리 서비스에 유입된 고객의 비율</li>
+<li><strong>빈도</strong> : 기존 고객이 얼마나 자주 지인들에게 우리 서비스를 추천하는지</li>
 </ul>
-</li>
-<li><strong>검색 광고 유입 고객</strong><ul>
-<li>재구매율은 매우 낮지만, 가입 후 구매까지의 행동이 매우 빠르며 전환율이 높음 $\rightarrow$ 첫 구매 이후 재구매 유도를 위한 적극적인 CRM 활동 필요</li>
-</ul>
-</li>
-<li><strong>콘텐츠 유입 고객</strong><ul>
-<li>재구매율과 구매율이 높으나, 가입율이 낮음 $\rightarrow$ 유입 직후 빠르게 가입을 완료할 수 있도록 인센티브 고려 가능</li>
-</ul>
-</li>
-</ul>
-<table border="1" cellspacing="0" cellpadding="8" style="border-collapse: collapse; text-align:center;">
-    <thead>
-        <tr>
-            <th></th>
-            <th>가입률</th>
-            <th>상세 페이지 진입률</th>
-            <th>구매율</th>
-            <th>재구매율</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>자연 유입</td>
-            <td>50%</td>
-            <td>50%</td>
-            <td>5%</td>
-            <td>30%</td>
-        </tr>
-        <tr>
-            <td>배너 광고 유입</td>
-            <td>80%</td>
-            <td>80%</td>
-            <td>2%</td>
-            <td>10%</td>
-        </tr>
-        <tr>
-            <td>검색 광고 유입</td>
-            <td>80%</td>
-            <td>90%</td>
-            <td>30%</td>
-            <td>5%</td>
-        </tr>
-        <tr>
-            <td>콘텐츠 유입</td>
-            <td>50%</td>
-            <td>60%</td>
-            <td>10%</td>
-            <td>20%</td>
-        </tr>
-        <tr>
-            <td>지인추천 유입</td>
-            <td>50%</td>
-            <td>50%</td>
-            <td>2%</td>
-            <td>25%</td>
-        </tr>
-    </tbody>
-</table>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <br>
-<h4 id="%EB%B6%84%EC%84%9D-%EC%82%AC%EB%A1%80---%EC%97%AC%ED%96%89-%EC%95%B1">&#48516;&#49437; &#49324;&#47168; - &#50668;&#54665; &#50545;<a class="anchor-link" href="#%EB%B6%84%EC%84%9D-%EC%82%AC%EB%A1%80---%EC%97%AC%ED%96%89-%EC%95%B1">&#182;</a></h4><ul>
-<li><p>고객 속성을 통해 성별 파악 후, 코호트 분석을 통해 가입 경로 퍼널 분석</p>
+<h3 id="%EB%B0%94%EC%9D%B4%EB%9F%B4-%EB%A3%A8%ED%94%84-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98">&#48148;&#51060;&#47092; &#47336;&#54532; &#47700;&#52964;&#45768;&#51608;<a class="anchor-link" href="#%EB%B0%94%EC%9D%B4%EB%9F%B4-%EB%A3%A8%ED%94%84-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98">&#182;</a></h3><br>
+<h4 id="%EC%9D%B4%EC%A4%91-%EC%9C%A0%EC%9D%B8%EC%B1%85">&#51060;&#51473; &#50976;&#51064;&#52293;<a class="anchor-link" href="#%EC%9D%B4%EC%A4%91-%EC%9C%A0%EC%9D%B8%EC%B1%85">&#182;</a></h4><ul>
+<li>초대하는 사람과 초대를 받는 살마 모두가 혜택을 받을 수 있도록 인센티브 설계</li>
+</ul>
+<br>
+<h4 id="%EC%9E%90%EC%B2%B4-%EC%A0%84%ED%8C%8C%EC%84%B1-%ED%99%9C%EC%9A%A9">&#51088;&#52404; &#51204;&#54028;&#49457; &#54876;&#50857;<a class="anchor-link" href="#%EC%9E%90%EC%B2%B4-%EC%A0%84%ED%8C%8C%EC%84%B1-%ED%99%9C%EC%9A%A9">&#182;</a></h4><ul>
+<li>제품이나 서비스 자체가 가지는 전파성이나 네트워크 효과를 활용<ul>
+<li>토스의 '송금하기', 카카오톡의 '선물하기' 등</li>
+</ul>
 </li>
-<li><p><strong>KPI : 가입 당일 첫 구매를 늘리는 것</strong></p>
+</ul>
+<br>
+<h4 id="%EC%A0%84%ED%8C%8C%EC%84%B1-%EB%86%92%EC%9D%80-%EC%9D%B4%EC%8A%88">&#51204;&#54028;&#49457; &#45458;&#51008; &#51060;&#49800;<a class="anchor-link" href="#%EC%A0%84%ED%8C%8C%EC%84%B1-%EB%86%92%EC%9D%80-%EC%9D%B4%EC%8A%88">&#182;</a></h4><ul>
+<li>기존 고객들과 외부의 잠재 고객들이 관심을 가지고 공유될 만한 전파성이 높은 이슈를 만들어 바이럴 유도<ul>
+<li>토스의 주식 한주 무료 증정 이벤트 등</li>
+</ul>
+</li>
+</ul>
+<br>
+<h3 id="%EB%B0%94%EC%9D%B4%EB%9F%B4-%EB%A3%A8%ED%94%84-%EC%98%88%EC%82%B0">&#48148;&#51060;&#47092; &#47336;&#54532; &#50696;&#49328;<a class="anchor-link" href="#%EB%B0%94%EC%9D%B4%EB%9F%B4-%EB%A3%A8%ED%94%84-%EC%98%88%EC%82%B0">&#182;</a></h3><ul>
+<li><p><strong>바이럴 루프를 통해 발생하는 단위당 고객 획득 비용이, 기존 CAC보다 저렴하다면</strong></p>
+<p>$\rightarrow$ 지속 가능한 바이럴 루프 예산</p>
 <ul>
-<li><strong>성별</strong> : KPI에 영향 없음</li>
-<li><strong>가입 경로</strong> : 검색 광고가 첫 구매 전환율이 높음 $\rightarrow$ 이미 여행지가 결정된 고객일테니, 검색 광고를 통해 가격을 비교하며 들어온 고객은 전환율이 높을 가능성 증가</li>
+<li><p>바이럴 루프의 인센티브 비요잉 CAC보다 커지게 되면 굳이 바이럴 루프를 진행할 필요가 없음</p>
+<p>$\rightarrow$ 같은 비용으로 기존 마케팅 활동을 유지하는것이 더 효율적이기 때문</p>
+</li>
+<li><p><strong>CAC는 제품/서비스 마다 모두 다르기에, 바이럴 루프에 필요한 예산 책정 시, CAC에 집중</strong></p>
+</li>
 </ul>
 </li>
 </ul>
-<table border="1" cellspacing="0" cellpadding="8" style="border-collapse: collapse; text-align:center;">
-    <thead>
-        <tr>
-            <th></th>
-            <th>프로파일</th>
-            <th>가입 경로</th>
-            <th>직전 액션</th>
-            <th>해당 액션</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>A 고객 그룹</td>
-            <td>여성</td>
-            <td>검색 광고</td>
-            <td>항공권 탐색</td>
-            <td>가입 당일 첫 구매</td>
-        </tr>
-        <tr>
-            <td>B 고객 그룹</td>
-            <td>남성</td>
-            <td>검색 광고</td>
-            <td>호텔 탐색</td>
-            <td>가입 당일 첫 구매</td>
-        </tr>
-        <tr>
-            <td>C 고객 그룹</td>
-            <td>남성</td>
-            <td>배너 광고</td>
-            <td>항공권 탐색</td>
-            <td>미구매</td>
-        </tr>
-        <tr>
-            <td>D 고객 그룹</td>
-            <td>여성</td>
-            <td>자연 유입</td>
-            <td>호텔 탐색</td>
-            <td>가입 당일 첫 구매</td>
-        </tr>
-        <tr>
-            <td>E 고객 그룹</td>
-            <td>여성</td>
-            <td>자연 유입</td>
-            <td>호텔 탐색</td>
-            <td>미구매</td>
-        </tr>
-    </tbody>
-</table>
 <br>
 <hr>
 
